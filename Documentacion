@@ -1,0 +1,501 @@
+AGRADECIMIENTOS
+
+Poner algo emotivo así los profes se ablandan y nos plantan un cacho 10 lokooo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+RESUMEN
+
+Durante los dos años en los que hemos cursado el ciclo de Desarrollo de Aplicaciones Multiplataforma hemos aprendido mucho sobre el mundo de la informática y la programación. 
+Como ya hemos comprobado el temario del curso es muy variado y completo, son varios los lenguajes de programación que se abordan, las asignaturas orbitan unas en relación con otras, y el material necesario para abordar los ejercicios y exámenes suele ser muy abundante. 
+Además, habría que contar las horas invertidas en buscar información por parte de los alumnos en otros lugares ajenos al centro, como foros, tutoriales online u otros programadores.
+Es por lo que tras debatir los tres autores de este proyecto entre varias ideas que teníamos, nos acabamos decantando por una aplicación en la que pudiéramos concentrar todo el conocimiento y materiales que habíamos recopilado a lo largo del curso, de forma ordenada y cómoda, para que cualquier otro alumno en un futuro pudiera beneficiarse de toda esa hemeroteca.
+Por supuesto no solo se trata de una simple “enciclopedia” donde consultar información. El objetivo es que los usuarios puedan ser partícipes también dándoles la posibilidad de subir sus propios documentos a la aplicación, donde el resto de los usuarios podrán valorar ese contenido.
+Además, los usuarios que se registren tendrán también la posibilidad de usar un área personal donde podrán gestionar sus enlaces subidos, sus notas en cada trimestre y asignatura del curso, medias, etc.
+Todo ello en una aplicación sólida, segura y muy centrada en la manejabilidad, sencillez y una buena experiencia de usuario.
+
+
+
+
+
+
+
+
+ANÁLISIS DE LA APLICACIÓN
+
+En este capítulo se presenta la fase de análisis, parte inicial de todo proyecto software, se definen los requisitos y se muestra una vista global de la arquitectura pensada para el sistema. En el siguiente capítulo se tendrá en cuenta este catálogo de requisitos como base para el diseño de todos los aspectos de la aplicación. Es por ello por lo que la fase de análisis es de suma importancia para el devenir de todo producto software. Es en este capítulo donde se deben asentar las bases, a modo de cimientos, del proyecto, y, a partir de las cuales se construirá todo lo demás.
+El proceso que seguir se basa en primer lugar en una buena definición de requisitos y en elegir una metodología de desarrollo acorde con el proyecto.
+La arquitectura de la aplicación tendrá el formato de cliente-servidor, constituyendo el servidor la base de datos, y API's de acceso, y cliente, la aplicación de escritorio.
+Este capítulo es fundamental para entender el proyecto. A continuación, se desglosan los datos técnicos, la funcionalidad y las características a modo de catálogo de requisitos, teniendo en cuenta tanto requisitos funcionales como no funcionales.
+Datos técnicos
+Nombre de la aplicación: Aplicación DAMníficus
+Plataforma: Microsoft Windows
+Lenguaje de programación: C# con el Framework .NET
+Requisitos mínimos del Sistema:
+•	Procesador: Intel Pentium Dual Core 1,6 GHz
+•	Memoria: 256 MB RAM
+•	Tarjeta gráfica: integrada
+•	Espacio de almacenamiento: 5MB
+Manual de instalación: Para hacer uso de la aplicación se debe abrir el archivo ejecutable correspondiente al cliente, es portable, por lo que no hace falta instalación alguna.
+Además, cabe destacar que para que la aplicación funcione correctamente se ha de ejecutar el servidor, es posible tanto en la misma máquina cliente, como en otro ordenador.
+El servidor es una aplicación de comandos de Windows y está programado en el mismo lenguaje que el cliente.
+Por último, es necesario tener una base de datos MySQL, esta Base de Datos debe estar instalada y funcionando. 
+
+Catálogo de requisitos
+El catálogo de requisitos es la especificación del comportamiento que se espera de cualquier proyecto software. Estudiando otras aplicaciones similares, se ha predefinido una serie de requisitos que se consideran indispensables para el proyecto. A continuación, se muestra una enumeración y breve descripción de los requisitos establecidos para el diseño y desarrollo de la aplicación.
+
+Requisitos funcionales
+Los requisitos funcionales describen todas las interacciones que tendrán los usuarios con el software.
+
+GESTIÓN DE USUARIOS
+RF1: Registro
+1.	La aplicación debe permitir al usuario introducir sus datos en el formulario de registro.
+2.	El sistema se encargará de validar los datos.
+3.	El sistema mostrará un mensaje de error si alguno de los datos es incorrecto o no cumple las condiciones especificadas del formulario de registro.
+4.	En el caso de que la validación sea correcta, el sistema se encargará de guardar los datos del usuario en base de datos.
+5.	El sistema enviará un correo electrónico de confirmación al usuario en el caso de que el registro se haya efectuado correctamente.
+6.	La aplicación mostrará un mensaje de bienvenida al usuario y le redirigirá a la pantalla principal con su sesión ya iniciada.
+RF2: Identificación
+1.	Para iniciar sesión el usuario deberá identificarse con su nombre de usuario y contraseña correspondiente. En el momento de la identificación se generará un token único de sesión para validar las peticiones siguientes.
+2.	El sistema se encargará de validar y permitir o denegar el acceso a la aplicación.
+3.	El sistema mostrará un mensaje de error en el caso de que la validación no sea correcta.
+4.	En el caso de que la validación sea correcta, se mostrará un mensaje de bienvenida al usuario y le redirigirá a la pantalla principal
+
+
+
+RF3: Cierre de sesión
+1.	Cualquier usuario de la aplicación debe poder finalizar sesión en la aplicación mediante un botón de que indique "Cierre de sesión".
+2.	En el caso de que el usuario cierre la aplicación, el sistema mostrará un mensaje, para asegurarse de que el usuario quiere cerrar sesión, permitiendo aceptar o cancelar.
+3.	El usuario será redirigido a la pantalla principal, pero en este caso sin estar logado.
+RF4: Área personal de usuario
+1.	Debe existir una pantalla en el sistema que permita al usuario consultar o modificar los datos de su cuenta.
+2.	Si modifica algún dato el sistema lo validará.
+3.	En caso de que la validación sea correcta, se actualizarán sus datos en la base de datos.
+RF5: Enlaces del usuario
+1. Debe existir una pantalla en la que el usuario pueda consultar los enlaces que él mismo haya subido al programa.
+
+APLICACIÓN
+RF6: Pantalla principal
+7.	La pantalla principal de la aplicación constará del mensaje de bienvenida y el acceso al registro si el usuario todavía no se ha logueado.
+RF7: Menú lateral
+1.	El menú lateral mostrará la opción de acceder a:
+a.	Principal: Formulario de bienvenida para registrar un nuevo usuario en la aplicación.
+b.	Cursos: Pantalla para ver los enlaces ordenados por cursos.
+c.	Área personal: Datos de cuenta de usuario como notas o enlaces subidos por él mismo.
+d.	Subida de enlaces: Formulario para subir nuevos enlaces.
+e.	Ayuda: Pantalla de información donde recuperar la contraseña si se ha perdido, cambiarla o reportar bug o sugerencia.
+f.	Administración: Este panel se muestra en lugar de el de ayuda si el usuario tiene credenciales de administrador. Aquí se pueden gestionar tanto los usuarios como los enlaces subidos por ellos.
+g.	Salir: Botón para salir de la aplicación.
+
+
+RF8: Búsqueda de enlaces
+1. En todas las pantallas de enlaces el usuario podrá usar un filtro de búsqueda en tiempo real.
+
+Requisitos no funcionales
+Requisitos complementarios o atributos de calidad. Especifican criterios que juzgan operaciones del sistema en lugar de su comportamiento (requisitos funcionales).
+RNF1: Documentación
+1.	Página con servicio de ayuda online.
+2.	Manual de usuario de la aplicación.
+3.	La codificación del sistema deberá ser clara y estar documentada de manera que algún programador pueda agregar funcionalidad posteriormente, procurando seguir los estándares de programación en C#.
+RNF2: Seguridad
+1.	Para poder utilizar todas las funciones de la aplicación hay que autentificarse.
+2.	Solo será necesario autentificarse una vez en el dispositivo.
+3.	Si el usuario no cierra su sesión al salir, ésta se cerrará automáticamente.
+4.	Los datos personales serán cifrados.
+
+RNF3: Mantenibilidad y portabilidad
+1.	Disponibilidad en todo momento de un contacto con los administradores.
+2.	La aplicación escritorio es portable y no necesita instalación.
+3.	Será necesario disponer de una conexión a internet, en caso de que el servidor se ejecute en una red externa.
+RNF4: Interfaz y usabilidad
+1.	La aplicación debe constar de una interfaz sencilla, atractiva e intuitiva. De tal forma que su uso no suponga un impedimento o esfuerzo al usuario a la hora hacer uso de la aplicación.
+2.	La introducción de datos debe estar estructurada procurando evitar errores.
+
+RNF5: Rendimiento
+1.	Se esperan tiempos de respuesta no superiores a un segundo en las peticiones al servidor y menores en las consultas a la base de datos.
+2.	Tanto los accesos a base de datos como algún cálculo que se realice en la aplicación no suponen demasiada carga para los equipos actuales, por lo que el rendimiento será óptimo.
+
+METODOLOGÍA DE DESARROLLO
+
+Se trata de un marco de trabajo usado para estructurar, planificar y controlar el proceso de desarrollo del software. Existe una gran cantidad de métodos diferenciados por sus fortalezas y debilidades. Una metodología de desarrollo software se basa en:
+Herramientas, modelos y métodos para ejecutar dicho proceso de desarrollo
+
+Cada metodología de desarrollo tiene su propio enfoque. Entre ellos, para el proyecto DAMníficus, el enfoque de prototipado parece ser el más apropiado, debido a que se centra en la experiencia con usuario y a que su construcción debe ser en poco tiempo.
+El modelo de prototipos pertenece a los modelos de desarrollo evolutivo, el prototipo debe ser construido en poco tiempo y sin utilizar muchos recursos. El diseño rápido se centra en representación de aspectos software visibles para el usuario. Este rápido diseño conduce a la creación de un primer prototipo que será evaluado y retroalimentado por el cliente, gracias al cual el equipo de desarrollo podrá entender mejor lo que se debe hacer y permitiendo ver al cliente resultados progresivos a corto plazo.
+Las diferentes etapas por la que pasa un software construido con este tipo de metodología son:
+-	Plan rápido
+-	Modelado, diseño rápido
+-	Desarrollo
+-	Entrega
+-	Retroalimentación
+-	Comunicación
+-	Entrega final
+
+Este modelo es muy útil cuando el cliente conoce perfectamente los objetivos generales del software, pero no detalla los requisitos.
+
+A continuación, se ilustra la metodología de desarrollo utilizada en este proyecto mediante un gráfico sencillo.
+
+
+
+Contenido de cada prototipo
+En el primer prototipo se crea el servidor y la interfaz de usuario principal de la aplicación. Además, la funcionalidad de iniciar sesión en la aplicación estaba disponible.
+En el segundo prototipo se implementaron el registro de usuario, las áreas de ayuda/administración con su funcionalidad completa y su conexión al servidor. Se comienza el desarrollo del área personal, el área. También se implementan las peticiones necesarias en el lado del servidor.
+Se crea un proyecto más para albergar una biblioteca de clases con las entidades compartidas.
+En el tercer prototipo se finalizaron el área personal y el área cursos.  En el área cursos se añaden las búsquedas y se mostrarán los resultados al usuario. 
+En el último prototipo se mejora lo anterior corrigiendo fallos y se refinan las interfaces por si no quedaron lo suficientemente intuitivas…
+Antes de cada entrega de prototipo se realizan una serie de pruebas tanto de usabilidad, como de carga de datos. Además, se prueba la conexión entre el servidor y varios clientes al mismo tiempo.
+
+Base de datos
+Es obvio que la base de datos no puede ser local en el propio equipo, por lo que se implementa una base de datos externa situada en el servidor y a la que se accede a través del API del servidor.
+La base de datos almacenará toda la información de usuarios, notas, asignaturas, temas o enlaces, se explicará más adelante en el capítulo respectivo al diseño.
+
+Seguridad
+Existirá una doble capa de seguridad para evitar cierto tipo de ataques. La aplicación se comunicará con el servidor por medio de llamadas HTTP para enviar y recibir información. Esta información puede verse en peligro ante ataques Man in the Middle, por ejemplo. Si el atacante consigue interceptar las cabeceras enviadas al servidor podría obtener datos muy valiosos como contraseñas y nombres de usuario.
+La forma más rápida de evitar estos ataques es cifrar los datos que se intercambian entre servidor y cliente, así como cifrar las contraseñas, para que en el caso de que un atacante consiguiera los datos, no le sean de utilidad. En el caso de la aplicación los datos estarán cifrados en SHA-512, en el caso de las contraseñas el cifrado es doble, con el fin de evitar semejantes ataques.
+DISEÑO
+
+En el presente capítulo se describe todo el proceso de diseño de la aplicación DAMníficus. Se ha realizado un diseño que abarca todos los requisitos descritos en el apartado Catálogo de requisitos. El diseño proporciona una idea completa del software desarrollado en el proyecto. Además, se justifican las decisiones tomadas para el posterior desarrollo. Para ello, el capítulo se divide en Arquitectura de la aplicación, Tecnologías utilizadas, Diseño de pantallas, Diseño de la interfaz, Diseño de la base de datos, Diseño de scripts y procedimientos almacenados y Diseño de la seguridad.
+El diseño de la aplicación ha ido sufriendo algún cambio a lo largo del desarrollo. En consecuencia, se muestran en este documento varias versiones de algunos diagramas de diseño de este. A continuación, se enumeran los diferentes motivos que han implicado dichas modificaciones:
+1.	Pruebas no satisfactorias, errores, dificultades o no satisfacción de todos los requisitos.
+2.	Ampliación o adición de algún requisito.
+3.	Adquisición de nuevos conocimientos.
+
+Arquitectura de la aplicación
+Como se menciona en el capítulo de Análisis, la arquitectura de la aplicación se basa en el modelo cliente servidor. En el caso de este proyecto, y como puede verse en la siguiente figura, la aplicación de escritorio constituirá la parte cliente, y la base de datos estará alojada en un servidor al que se accederá mediante llamadas http.
+
+ 
+
+
+Para el proyecto DAMníficus era necesario una base de datos centralizada, y no local en el equipo, por lo que la separación entre cliente y servidor se convierte en más que lógica en este caso.
+El cliente es quien inicia las solicitudes, teniendo un papel activo en la comunicación, y espera la respuesta del servidor. 
+En el caso de este proyecto, y como es común en modelos de este tipo, el cliente interactúa con el usuario a través de una interfaz gráfica.
+Por otro lado, el receptor de la solicitud, el servidor, espera a que lleguen solicitudes de los clientes, desempeñando un papel pasivo en la comunicación. Tras la recepción, procesa y envía los datos al cliente.
+Las ventajas que supone dicha separación son notables, ventajas de tipo organizativo debidas a la centralización de la gestión de la información y separación de responsabilidades, lo que clarifica y facilita el sistema. La escalabilidad y encapsulación son otras de las ventajas más destacables de este modelo, permitiendo aumentar funcionalidades o recursos de ambos por separado.
+En el apartado de Diseño de pantallas de este capítulo se ilustran accesos al servidor mediante un diagrama de pantallas.
+
+Modelo a capas
+La aplicación cliente ha sido diseñada siguiendo el modelo por capas. La programación por capas es una arquitectura cuyo objetivo primordial es la separación de la lógica de negocios de la lógica de diseño. un ejemplo básico de esto consiste en separar    la capa de datos de la capa de presentación al usuario.
+La ventaja principal de este estilo es que el desarrollo se puede llevar a cabo en varios niveles y, en caso de que haya que hacer algún cambio, sólo se ataca al nivel requerido.
+El diseño más utilizado actualmente y el que hemos usado en nuestra aplicación es el diseño en tres capas:
+
+1.	Capa de presentación o vista: es la que ve el usuario, presenta el sistema al usuario, le comunica la información y captura la información del usuario en un mínimo de proceso (realiza un filtrado previo para comprobar que no hay errores de formato). También es conocida como interfaz gráfica y debe tener la característica de ser entendible y fácil de usar para el usuario. Esta capa se comunica únicamente con la capa de negocio o modelo.
+
+2.	Capa de negocio o modelo: es donde se reciben las peticiones del usuario y se envían las respuestas tras el proceso. Se denomina capa de negocio o modelo y es aquí donde se establecen todas las reglas que deben cumplirse. Esta capa se comunica con la  capa de presentación,  para recibir las solicitudes y presentar los resultados, y con la  capa de datos, para solicitar al gestor de base de datos almacenar o recuperar datos de él.
+
+3.	Capa de datos o persistencia: es donde residen los datos y es la encargada de acceder a los mismos. Está formada por uno o más gestores de bases de datos que realizan todo el almacenamiento de datos, reciben solicitudes de almacenamiento o recuperación de información desde la capa del modelo.
+
+Una de las cosas más importantes al utilizar este modelo de capas es no olvidar que nunca puedes llamar desde una capa a otra que no se comunique directamente con ella. Es imprescindible seguir la visibilidad de capas.
+
+ 
+
+Vista
+La capa de vista es la capa encargada de mostrar los datos que le proporciona el
+modelo al usuario. Esta capa se comunica con el usuario y con el modelo, formatea los datos para mostrárselos al usuario y utiliza lógica para mostrarlos, pero nunca lógica de aplicación.
+Un ejemplo de esto podría ser que la capa de modelo le envie un array con productos y la vista lo formatee para rellenar una tabla en la que aparezcan los productos con toda su información.
+
+Modelo
+La capa de modelo es la capa encargada de tratar los datos que recibe de la vista y de la persistencia. El modelo es el cerebro de la aplicación, y nunca debe comunicarse directamente con el usuario, así que evitaremos por ejemplo mostrar una pantalla de error al usuario desde esta capa. En el caso de existir el error, la forma de actuar será mandando la información del error a la vista y la vista mostrará el error.
+En nuestro caso, un ejemplo muy claro es que pedimos una lista con tiempos de cada juego a la base datos, la base de datos nos devuelve una lista con todos los tiempos, nosotros seleccionamos en el modelo los mejores de cada dificultad y se los pasamos a la vista para que los muestre.
+
+ 
+
+Persistencia
+La capa de persistencia es la encargada de comunicarse con la base de datos para realizar las operaciones de actualización, inserción, borrado y selección.
+La persistencia podríamos decir que es la que hace el trabajo sin pensar, simplemente recibe las órdenes del modelo y la lleva a cabo, sin ningún tipo de lógica.
+Para la capa de persistencia hemos usado un modelo relacional.
+Un ejemplo de esto lo tenemos en la inserción de registros dentro de la base de datos.     El modelo le proporciona un objeto a la persistencia y le pide que lo inserte, y la persistencia sin ningún tipo de lógica de tratamiento de datos, simplemente coge el objeto y lo inserta en la base de datos.
+
+ 
+Tecnologías utilizadas
+En este pequeño apartado se enumeran las diferentes herramientas y tecnologías utilizadas durante el desarrollo del proyecto.
+
+Microsoft Visual Studio
+Es un IDE (entorno integrado de desarrollo) que permite desarrollar aplicaciones, sitios web, aplicaciones WPF, aplicaciones web, servicios web, apps de Windows Sotre, etc. para poder ser ejecutadas en todas las plataformas de Microsoft Windows, Windows Mobile, Windows CE, .Net Framework, .NET Compact Framework y Microsoft Silverlight. Permite emplear múltiples lenguajes de programación.
+Newtonsoft Json.Net
+Se trata de una librería para la serialización de objetos JSON. La utilización de esta librería nos va a aportar las siguientes ventajas:
+•	Una forma de trabajar sencilla y unificada para todas nuestras clases. 
+•	JSON.NET nos permite serializar de .NET a JSON, pero también de forma inversa de JSON a .NET.
+LiveCharts
+Se trata de una aplicación diseñada para facilitar la visualización de marcadores o estadísticas en programas basados en la plataforma .NET.
+Con esta librería todo se actualiza y anima automáticamente, la biblioteca sólo se actualizará cuando lo considere necesario, no cada vez que los datos cambien, cuando agreguen o elimine datos, los valores de las gráficas se actualizarán por sí solas.
+ObjectListView
+En este caso estamos hablando de un wrapper de C# alrededor del ListView de .NET. Hace que el ListView sea mucho más potente, fácil de usar y con algunas características propias que no se encuentran en la librería por defecto.
+GitHub
+Es una plataforma de desarrollo colaborativo para alojar proyectos utilizando el sistema de control de versiones Git. Se utiliza principalmente para la creación de código fuente de programas de ordenador.
+XAMPP
+Se trata de un servidor independiente de plataforma, software libre, que consiste principalmente en la base de datos MySQL, el servidor Web Apache y los intérpretes para lenguajes de script: PHP y Perl.
+Diseño de la interfaz
+
+El diseño de la aplicación se basa en una interfaz principal con un menú lateral desplegable que estará en todo momento presente. En él se podrá usar los botones que navegan a los distintos formularios de la aplicación, abriéndose éstos dentro de la propia interfaz principal, como se menciona más arriba.
+Este diseño de la aplicación fue evolucionando en distintas fases de prototipado que a continuación se detallan:
+Primer prototipo de pantalla
+En este primer diseño puede observarse cómo la aplicación está en su fase más temprana. En este momento la interfaz luce un diseño simple y poco refinado, esto es debido a que en ese momento el equipo de desarrollo estábamos más centrados en recopilar información y probar distintas soluciones para aplicar la interfaz. En un primer momento probamos con distintas librerías externas, pero no nos convencía el resultado final.
+
+ 
+Segundo prototipo de pantalla
+Para el segundo diseño se intentó aplicar el menú de la pantalla principal a base de pestañas. Cambiando bastantes propiedades se conseguía un diseño más acorde a lo que teníamos en mente, pero las pestañas que trae por defecto la plataforma .Net son poco potentes y pronto nos encontramos con problemas de dibujado de éstas.
+Decidimos entonces usar una librería externa para las pestañas que permitían más personalización y tenían posibilidades extendidas. El problema salió a la luz cuando nos dimos cuenta de que con esta librería el rendimiento caía de forma espectacular, haciendo al programa poco manejable de cara al usuario.
+
+ 
+Prototipo final de pantalla
+Finalmente decidimos hacer todo el diseño a mano, es decir usando paneles a los que les fuimos dando forma y color y posicionándolos adecuadamente en su sitio. De este modo conseguimos una interfaz muy versátil, a la que podíamos añadirle todo tipo de animaciones y efectos y que también podíamos personalizar en base a las necesidades que fueron surgiendo a lo largo del desarrollo. 
+
+ 
+Diseño de las pantallas
+La interfaz se ha diseñado con el propósito de que sea intuitiva y simple, pero a la vez potente y capaz de cubrir todos los requisitos enumerados en el apartado de catálogo de requisitos.
+Como ya se menciona en el apartado prototipos toda la interfaz está diseñada y programada desde cero, cubriéndose toda la aplicación de paneles personalizados que se adaptan perfectamente a todo tipo de resoluciones y configuraciones de pantalla.
+Pantalla principal
+ 
+Detallar todas las funciones del panel principal contenedor, lo de los botones animaciones, etc…
+Pantalla Registro
+Pantalla Área cursos
+Antonio Aquí hay que poner el diseño de las pantallas, detallando la informacion acerca solamente de cosas relacionadas con la interfaz, la parte de lógica va en Implementación.
+Pantalla Área personal
+Aquí va una foto del área personal cuando esté acabada
+El formulario ÁreaPersonal está construido a partir de un tableLayoutPanel de 3 columnas y 2 filas. En la primera fila columnas 1 y 2, y en la segunda fila columnas 2 y 3 están fusionadas mediante ColumnSpan para acoplar los componentes y obtener una mejor visualización. 
+Hemos usado una extensión NuGet llamada LiveChart para WindowsForms para la representación de las notas del usuario.
+
+En la primera fila, primera y segunda columna tenemos una CartesianChart en forma de ColumnSeries, dependiendo del curso en el que esté matriculado el usuario, constituida por 6 o por 7 Series. Estas series se cargarán con el nombre de las asignaturas y sus valores de los 3 o 2 trimestres. Los valores de estas series se obtendrán mediante la consulta a la base de datos como se describirá más adelante.
+
+En la primera fila, tercera columna está colocado un GroupBox que se encarga de la inclusión de notas en la base de datos. Su composición interna es de un ListBox que carga mediante el UsuarioConectado, las asignaturas del curso actual en el que está matriculado actualmente y que cuya carga se explicará más adelante. Un TrackBar representante de los trimestres, que también dependerá del curso matriculado, ya que como todos sabemos, el primer curso está compuesto de 3 trimestres, y segundo curso tiene solo 2, con lo cual, en la carga de componentes, definirá un máximo dependiendo del curso recuperado. Para el valor de la nota colocamos un NumericUpDown con valor mínimo 0 y valor máximo 10, con dos posiciones decimales, acorde con el tipo de valor almacenado de las notas en la base de datos, que en cada pulsación subirá o bajará el valor 0,01. Por último un Button que introducirá en la base de datos la nota seleccionada en el NumericUpDown, de la asignatura seleccionada en el ListBox, y correspondiente al trimestre seleccionado en el TrackBar.
+En la segunda fila, primera columna colocamos una PieChart, que dependerá también del curso del usuario, que al igual que con la gráfica de notas, cargará 6 o 7 PieSeries que contendrán las notas medias del usuario que se obtendrán a través de la base de datos y que se explicará mas adelante en el apartado de implementación.
+Valentín revisa esto por si acaso
+Pantalla Subida de enlaces
+
+Pantalla ayuda
+
+Pantalla administración
+Antonio Aquí hay que poner el diseño de las pantallas, detallando la informacion acerca solamente de cosas relacionadas con la interfaz, la parte de lógica va en Implementación.
+
+
+
+Diseño de la base de datos
+En este apartado se tratan los aspectos de diseño relacionados con la base de datos del servidor. En un principio se muestra un diseño modelo entidad-relación, al final del apartado se muestra el detalle de tablas.
+
+Modelo Entidad-Relación
+Para este programa hemos creado dos bases de datos independientes, una para los usuarios y sus credenciales; y otra para los enlaces y la información personal de los mismos.
+
+
+
+
+
+
+La primera ilustración muestra un simple esbozo del esquema entidad relación de la base de datos de los usuarios. Como puede verse, el usuario está en relación con los atributos de sus credenciales, como el rango y el token.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+En esta segunda imagen se muestra el modelo ER que se creó para la base de datos de los enlaces, como se puede observar, el modelo es también bastante simple y no fue ningún problema trasladarlo al modelo relacional.
+Diseño final base de datos
+Aquí podemos observar el diseño que finalmente se ha implantado en la base de datos, como ya vimos en el apartado anterior, la estructura del modelo ER facilitó en gran medida la creación de la base en MySQL.
+En primer lugar, tenemos la base de datos de usuario, que se muestra de forma detallada a continuación:
+
+ 
+En la siguiente imagen podemos ver también a todo detalle el diseño de la base de datos de los enlaces.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Diseño de la seguridad
+Con el fin de evitar ataques y brechas en la seguridad, se decide cifrar datos de usuarios como las contraseñas con md5 [10].
+Con esto se consigue que, aunque alguien consiguiera acceso a la base de datos y extrajera datos de los usuarios, dichos datos estarían cifrados, teniendo así que recurrir al uso de una fuerza bruta muy costosa.
+Aquí hay que detallar el tema de las encriptaciones, la de la clave y la de los datos del json.
+Diseño de la aplicación
+Explicar aquí todo el tema de que aparte del cliente-servidor hay un proyecto de entidades compartidas donde se aloja la encriptación y tal.
+
+Conclusiones
+Se presenta este apartado al final del extenso capítulo de diseño, a modo de resumen, y con el objetivo de hacer una síntesis de las decisiones tomadas, que afectarán en gran medida en el siguiente capítulo, implementación de la aplicación. Se destaca, por tanto, del capítulo de diseño, los siguientes puntos:
+•	La arquitectura del proyecto se basa en el modelo cliente-servidor, donde el cliente será la aplicación móvil, y el servidor una base de datos basada en MySQL.
+•	Se ha elaborado un diagrama de pantallas específico con transiciones entre ellas y recursos que utilizarán.
+•	Se crean unas maquetas que intentarán acercarse lo máximo posible al producto final.
+•	Asimismo, se diseña la base de datos SQL con un diagrama entidad relación, especificando del mismo modo los campos de las tablas.
+•	Se hace una primera enumeración de los ficheros PHP y SQL que compondrán la parte de servidor del producto.
+•	Los ficheros PHP y los procedimientos almacenados se utilizarán para accesos y modificaciones de la base de datos del proyecto, alojada en un servidor.
+•	Los datos que devuelva el servidor deben estar serializados en XML, con el fin de que su tratamiento por la aplicación sea más sencillo.
+
+
+
+
+
+IMPLEMENTACIÓN
+
+En este capítulo se aborda la fase de implementación del proyecto. Se explicarán algunos detalles relevantes, así como las diferentes dificultades que se encontraron en el proceso.
+En esta fase se implementa el diseño realizado en el capítulo anterior de diseño, basado en el catálogo de requisitos del capítulo de Análisis. Como se ha especificado en el capítulo anterior, se utilizará la plataforma .NET para ambos programas (cliente y servidor) y se utilizará una base de datos MySQL con XAMPP.
+A lo largo del capítulo se tratarán los siguientes aspectos:
+-	Elementos básicos de la parte cliente, módulos, librerías utilizadas e interfaz.
+-	Aspectos relevantes de la parte servidor, así como parte de su implementación.
+Parte cliente
+Como se ha especificado en capítulos anteriores, la parte de cliente la constituye la aplicación Android. En los siguientes apartados se intenta dar una visión de los elementos básicos que la componen.
+Elementos básicos
+Los primeros elementos que tratar, y con el fin de dar una perspectiva general de la parte cliente, serán los diferentes módulos implementados. Con módulos se intenta representar funcionalidades relacionadas y agrupadas dentro de un mismo proyecto.
+
+Capa Acceso a datos
+Explicar el tema de las peticiones, la clave con su cifrado, el JSON, el cifrado del JSON el tema de la asincronicidad, el token, etc..
+
+Gestión de login de usuarios
+De la gestión de usuarios se encargan las clases Login.java, Logout.java, Register.java y Baja.java. Todas ellas extienden la clase Activity [20], con el fin de interactuar con el usuario.
+La actividad Register.java es la encargada de dar de alta a un usuario en el sistema. Por eso necesitará una formulario de registro, recoger los datos del usuario, comprobarlos, y realizar una llamada de registro al servidor mediante una tarea asíncrona.
+Cabe destacar de esta actividad la comprobación de datos introducidos por el usuario, antes de realizar la llamada al servidor, tales como el correo electrónico, dado que el usuario recibirá correos de la empresa confirmando su registro, o sus distintas reservas más adelante.
+
+
+
+La actividad Login.java es la encargada de realizar la llamada de inicio de sesión en el servidor para un usuario ya registrado en la aplicación. Para ello recoge los datos "nombre de usuario" y "contraseña" del formulario de inicio de sesión. Una vez comprobado que ambos campos poseen caracteres, realiza una llamada al servidor para comprobar dichos datos.
+
+Gestión de registro de usuarios
+Gestión área personal del usuario
+Gestión de área cursos
+Gestión de subida de enlaces
+Gestión de área ayuda
+Gestión de área administración
+Parte servidor
+
+A continuación, se describe parte relevante de la codificación del lado del servidor del proyecto.
+
+Para poder realizar esta fase, fue necesaria la instalación de XAMPP con PHPMyAdmin en nuestros equipos.
+El objetivo de esta instalación era poder trabajar y realizar las pruebas en localhost, con el fin de poder implantar más adelante los ficheros y la base de datos en un servidor real.
+Programa servidor
+Peticiones en hilos, desencriptado doble, consola debug
+Envío de email
+Generador de token
+Base de datos
+Como se describe en el Capítulo 4 - Diseño, se crea una base de datos relacional con las tablas descritas en ese capítulo, teniendo en cuenta claves primarias y claves externas. Se lleva a cabo desde la aplicación Tora.
+Escritura en consola
+Conclusiones
+Este apartado se redacta a modo de resumen al final del capítulo de implementación con el fin de condensar los aspectos más importantes y algunas de las dificultades encontradas.
+Se han desarrollado los módulos previstos en la fase de diseño, las interfaces y las tareas asíncronas que completan la funcionalidad de la aplicación.
+Dado conocimiento adquirido durante el curso, tanto en las asignaturas de Programación de servicios y procesos como en Programación o Desarrollo de interfaces, no han surgido problemas que no hayan podido ser solucionados con una vuelta a los apuntes, una búsqueda en internet o consultando las librerías necesarias.
+Por otro lado, sí surgió alguna complicación en la instalación del entorno Ubuntu para el trabajo en localhost. Así como alguna tarea que duró un poco más de lo previsto, donde hubo que refrescar conocimientos sobre php y procedimientos almacenados adquiridos en las asignaturas de Sistemas informáticos.
+Tras la fase de pruebas en localhost de todos estos ficheros, mi tutor, el profesor Gonzalo Martínez Muñoz, alojó dichos ficheros en un servidor de la universidad utilizado para la asignatura de Aplicaciones Móviles, con el objetivo de dar un poco de realismo a la aplicación, y para probar el rendimiento en un servidor real.
+
+
+
+PRUEBAS
+Se deben separar los dos sectores de pruebas que engloban la totalidad del proyecto. En un primer lugar, la fase de pruebas de la parte cliente (aplicación), y por otro lado, la parte servidor.
+
+Pruebas en el cliente
+En el primero de los casos mencionados, las pruebas han sido sencillas, tras terminar la codificación de cada prototipo se ha realizado una serie de pruebas con el objetivo de intentar detectar posibles errores. Se realizan pruebas tanto de caja blanca como de caja negra [30] y con usuarios finales.
+En todos los prototipos, el procedimiento de pruebas ha sido el que sigue.
+En primer lugar, se han realizado pruebas de caja negra, escogiendo funciones que podían dar problemas debido a su complejidad, o a su conexión con el servidor. Se han probado paso a paso intentando dar solución a los problemas encontrados, con el objetivo de evitar errores futuros mayores.
+En segundo lugar se realizan pruebas de caja blanca, con conocimiento del código, y examinando las partes o módulos aparentemente más problemáticos, que normalmente coincidían con los módulos marcados como erróneos en las pruebas de caja negra.
+Por último, y una vez solucionados los errores de cada prototipo, se llevan a cabo pruebas con usuarios finales, dando como resultado algún cambio en la interfaz, por no ser del todo intuitiva. Cambiando por ejemplo huecos de texto por desplegables, o elementos de Android como calendarios o listas. También algunos huecos de texto se cambian a tipo numérico para que el teclado no muestre letras, por ejemplo, el hueco para introducir la tarjeta de crédito.
+A continuación se enumeran las diferentes pruebas en cada uno de los prototipos.
+•	Prototipo 1: Se prueba el registro de usuario y el inicio de sesión desde la aplicación. Asímismo las pantallas de información sobre la empresa.
+•	Prototipo 2: Pruebas sobre búsquedas de servicios turísticos.
+•	Prototipo 3: Se prueban las reservas por parte del usuario.
+
+En todas las fases de pruebas se va comprobando la correcta adición de los datos a la base de datos del proyecto.
+
+En la siguiente tabla se observa el listado de pruebas realizadas. La mayoría de las pruebas que se intentaron fueron operaciones no permitidas para comprobar que el sistema lo detecta y toma medidas al respecto.
+
+
+Entrada	Salida esperada	Prototipo
+Registrarse	Registro de usuario en la BD	1
+Registrarse sin indicar algún campo	No permite el registro	1
+Registrarse con un correo electrónico que no tiene formato Email	No permite el registro	1
+Intento de registro de un usuario ya existente	No permite el registro	1
+Dar de baja el usuario	Se da de baja el usuario y se elimina de la BD	1
+Inicio de sesión	Permite el inicio de sesión en la aplicación	1
+Inicio de sesión sin indicar algún campo	No permite el inicio de sesión	1
+Inicio de sesión con usuario y contraseña que no coinciden	No permite el inicio de sesión	1
+Se intenta editar el usuario con algún dato vacío	No edita los datos del usuario	1
+Se intenta hacer una búsqueda	La búsqueda es satisfactoria	2
+Se intenta hacer una búsqueda con campos incompletos	No permite la búsqueda	2
+Se intenta acceder al detalle de un servicio que no existe en la lista	No permite visualizar el detalle	2
+Se intenta acceder al detalle de un servicio	Permite ver el detalle	2
+
+
+
+
+Intento de reserva de un servicio	Permite la reserva y se registra en BD	3
+Intento de reserva sin tarjeta de crédito	No permite la reserva	3
+Intento de contactar con la empresa a través de formulario	Se envía un correo electrónico a la empresa	3
+Intento de contactar con la empresa con algún campo vacío	No permite el envío del formulario	3
+
+Pruebas en el servidor
+Como se ha descrito en apartados anteriores, la parte del servidor se codificó en Ubuntu 12.04, utilizando Apache y trabajando en localhost.
+
+Una de las pruebas más importantes se basaba en registrar un usuario en el servidor y realizar una reserva con él. Todo ello a través de llamadas en el explorador de internet a los scripts PHP, trabajando el localhost.
+En primer lugar, se muestra en la imagen como se registra el usuario Prueba con constraseña Prueba1. El correo electrónico y la tarjeta de crédito también son de prueba.
+Para comprobar que la funcionalidad de inicio de sesión funciona, se utiliza el mismo script que para el registro, indicando únicamente usuario y contraseña como parámetros, y en vez de correo electrónico y tarjeta de crédito, en este caso, se indica el parámetro login al final de la llamada.
+ILUSTRACIÓN 60 - PRUEBA SCRIPT DE INICIO DE SESIÓN
+Como puede observarse, el script devuelve el mismo identificador de usuario que se había registrado. En caso de error en alguno de estos scripts, se devuelve un -1.
+Por último, se comprueba el script que inserta en la base de datos una contratación de un servicio por parte de un usuario, en este caso un hotel.
+La llamada al script de reserva de hotel es la siguiente:
+http://localhost/~alfonso/SERVER%20TFG/registerHotel.php?idHotel=15584&idUsu ario=6403abe-db34-426a-b8d19eb99008aef0&nombreHotel=NH%20Principe%20de%20Vergara&direccionHotel=Principe%20de% 20Vergara%20292&ciudadHotel=Madrid&linkHotel=www.nh-hoteles.es/NH- Principe-Vergara.html
+
+Comprobamos que el registro ha sido añadido correctamente a la tabla hoteles, relacionando el identificador de usuario con el identificador del hotel mediante el script hotelesBD.php, que recibe por parámetro el identificador del usuario, devolviendo un fichero XML con los hoteles de ese usuario.
+ILUSTRACIÓN 61 - EJEMPLO SCRIPT HOTELESBD
+
+
+
+Se puede observar como el mismo identificador de usuario registrado, ha registrado correctamente el hotel en la base de datos.
+CONCLUSIONES
+Este capítulo se dedica a conclusiones finales y personales del proyecto, extraídas a lo largo de todo el proceso de desarrollo del mismo.
+Se han cumplido todos los objetivos y requisitos mencionados en los capítulos. El principal de ellos era crear una aplicación móvil para Android capaz de ofrecer los servicios de la empresa a usuarios por medio de este canal.
+La aplicación desarrollada ofrece la búsqueda y posible reserva de servicios turísticos tales como vuelos, hoteles y coches de alquiler, además permite la consulta de datos de interés de la empresa, así como el contacto con ella vía correo electrónico.
+Atendiendo al desarrollo técnico del proyecto, fue difícil sintetizar todas las ideas y requisitos que había sobre la mesa. Una vez realizadas las fases de análisis y diseño, las fases posteriores fueron encauzadas rápidamente. Por lo que las primeras fases de planificación, análisis y diseño resultaron ser de suma importancia.
+Además de haber aprendido a desarrollar un proyecto de principio a fin, pasando por todas sus fases, he adquirido nuevos conocimientos, o ampliado muchos de ellos sobre Java, Android, modelo cliente-servidor, PHP, SQL y otros conocimientos necesarios que se han requerido durante todas las fases.
+
+ANEXOS
+
+Aquí tenemos que poner el Manual de usuario
+RECURSOS MATERIALES
+
+Nuestros ordenadores y tal pascual
+BIBLIOGRAFÍA
+
+https://es.wikipedia.org/wiki/Programaci%C3%B3n_por_capas
+http://es.wikipedia.org/wiki/Modelo_de_prototipos
+http://www.veracode.com/security/man-in-the-middle-attack
+http://www.md5.net/
+http://alegsa.com/Respuesta/ventajas_y_desventajas_del_modelo_clienteservidor.ht
+http://www.devjoker.com/contenidos/catss/505/JSONNET-Mejorando-la-serializacion-JSON-con-NET.aspx
+
