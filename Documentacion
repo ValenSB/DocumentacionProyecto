@@ -7,33 +7,6 @@ A Miguel Ángel Muñoz Herrera por su incansable empeño en que nos aprendamos l
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 RESUMEN
 
 Durante los dos años en los que hemos cursado el ciclo de Desarrollo de Aplicaciones Multiplataforma hemos aprendido mucho sobre el mundo de la informática y la programación. 
@@ -46,17 +19,13 @@ Todo ello en una aplicación sólida, segura y muy centrada en la manejabilidad,
 
 
 
-
-
-
-
-
 ANÁLISIS DE LA APLICACIÓN
 
 En este capítulo se presenta la fase de análisis, parte inicial de todo proyecto software, se definen los requisitos y se muestra una vista global de la arquitectura pensada para el sistema. En el siguiente capítulo se tendrá en cuenta este catálogo de requisitos como base para el diseño de todos los aspectos de la aplicación. Es por ello por lo que la fase de análisis es de suma importancia para el devenir de todo producto software. Es en este capítulo donde se deben asentar las bases, a modo de cimientos, del proyecto, y, a partir de las cuales se construirá todo lo demás.
 El proceso que seguir se basa en primer lugar en una buena definición de requisitos y en elegir una metodología de desarrollo acorde con el proyecto.
 La arquitectura de la aplicación tendrá el formato de cliente-servidor, constituyendo el servidor la base de datos, y API's de acceso, y cliente, la aplicación de escritorio.
 Este capítulo es fundamental para entender el proyecto. A continuación, se desglosan los datos técnicos, la funcionalidad y las características a modo de catálogo de requisitos, teniendo en cuenta tanto requisitos funcionales como no funcionales.
+
 Datos técnicos
 Nombre de la aplicación: Aplicación DAMníficus
 Plataforma: Microsoft Windows
@@ -79,71 +48,73 @@ Los requisitos funcionales describen todas las interacciones que tendrán los us
 
 GESTIÓN DE USUARIOS
 RF1: Registro
-1.	La aplicación debe permitir al usuario introducir sus datos en el formulario de registro.
-2.	El sistema se encargará de validar los datos.
-3.	El sistema mostrará un mensaje de error si alguno de los datos es incorrecto o no cumple las condiciones especificadas del formulario de registro.
-4.	En el caso de que la validación sea correcta, el sistema se encargará de guardar los datos del usuario en base de datos.
-5.	El sistema enviará un correo electrónico de confirmación al usuario en el caso de que el registro se haya efectuado correctamente.
-6.	La aplicación mostrará un mensaje de bienvenida al usuario y le redirigirá a la pantalla principal con su sesión ya iniciada.
+  1.	La aplicación debe permitir al usuario introducir sus datos en el formulario de registro.
+  2.	El sistema se encargará de validar los datos.
+  3.	El sistema mostrará un mensaje de error si alguno de los datos es incorrecto o no cumple las condiciones especificadas del formulario de registro.
+  4.	En el caso de que la validación sea correcta, el sistema se encargará de guardar los datos del usuario en base de datos.
+  5.	El sistema enviará un correo electrónico de confirmación al usuario en el caso de que el registro se haya efectuado correctamente.
+  6.	La aplicación mostrará un mensaje de bienvenida al usuario y le redirigirá a la pantalla principal con su sesión ya iniciada.
 RF2: Identificación
-1.	Para iniciar sesión el usuario deberá identificarse con su nombre de usuario y contraseña correspondiente. En el momento de la identificación se generará un token único de sesión para validar las peticiones siguientes.
-2.	El sistema se encargará de validar y permitir o denegar el acceso a la aplicación.
-3.	El sistema mostrará un mensaje de error en el caso de que la validación no sea correcta.
-4.	En el caso de que la validación sea correcta, se mostrará un mensaje de bienvenida al usuario y le redirigirá a la pantalla principal
+  1.	Para iniciar sesión el usuario deberá identificarse con su nombre de usuario y contraseña correspondiente. En el momento de la identificación se generará un token único de sesión para validar las peticiones siguientes.
+  2.	El sistema se encargará de validar y permitir o denegar el acceso a la aplicación.
+  3.	El sistema mostrará un mensaje de error en el caso de que la validación no sea correcta.
+  4.	En el caso de que la validación sea correcta, se mostrará un mensaje de bienvenida al usuario y le redirigirá a la pantalla principal
 
 
 
 RF3: Cierre de sesión
-1.	Cualquier usuario de la aplicación debe poder finalizar sesión en la aplicación mediante un botón de que indique "Cierre de sesión".
-2.	En el caso de que el usuario cierre la aplicación, el sistema mostrará un mensaje, para asegurarse de que el usuario quiere cerrar sesión, permitiendo aceptar o cancelar.
-3.	El usuario será redirigido a la pantalla principal, pero en este caso sin estar logado.
+  1.	Cualquier usuario de la aplicación debe poder finalizar sesión en la aplicación mediante un botón de que indique "Cierre de sesión".
+  2.	En el caso de que el usuario cierre la aplicación, el sistema mostrará un mensaje, para asegurarse de que el usuario quiere cerrar sesión, permitiendo aceptar o cancelar.
+  3.	El usuario será redirigido a la pantalla principal, pero en este caso sin estar logado.
 RF4: Área personal de usuario
-1.	Debe existir una pantalla en el sistema que permita al usuario consultar o modificar los datos de su cuenta.
-2.	Si modifica algún dato el sistema lo validará.
-3.	En caso de que la validación sea correcta, se actualizarán sus datos en la base de datos.
+  1.	Debe existir una pantalla en el sistema que permita al usuario consultar o modificar los datos de su cuenta.
+  2.	Si modifica algún dato el sistema lo validará.
+  3.	En caso de que la validación sea correcta, se actualizarán sus datos en la base de datos.
 RF5: Enlaces del usuario
-1. Debe existir una pantalla en la que el usuario pueda consultar los enlaces que él mismo haya subido al programa.
+  1. Debe existir una pantalla en la que el usuario pueda consultar los enlaces que él mismo haya subido al programa.
 
 APLICACIÓN
 RF6: Pantalla principal
-7.	La pantalla principal de la aplicación constará del mensaje de bienvenida y el acceso al registro si el usuario todavía no se ha logueado.
+  7.	La pantalla principal de la aplicación constará del mensaje de bienvenida y el acceso al registro si el usuario todavía no se ha logueado.
 RF7: Menú lateral
-1.	El menú lateral mostrará la opción de acceder a:
-a.	Principal: Formulario de bienvenida para registrar un nuevo usuario en la aplicación.
-b.	Cursos: Pantalla para ver los enlaces ordenados por cursos.
-c.	Área personal: Datos de cuenta de usuario como notas o enlaces subidos por él mismo.
-d.	Subida de enlaces: Formulario para subir nuevos enlaces.
-e.	Ayuda: Pantalla de información donde recuperar la contraseña si se ha perdido, cambiarla o reportar bug o sugerencia.
-f.	Administración: Este panel se muestra en lugar de el de ayuda si el usuario tiene credenciales de administrador. Aquí se pueden gestionar tanto los usuarios como los enlaces subidos por ellos.
-g.	Salir: Botón para salir de la aplicación.
+  1.	El menú lateral mostrará la opción de acceder a:
+    a.	Principal: Formulario de bienvenida para registrar un nuevo usuario en la aplicación.
+    b.	Cursos: Pantalla para ver los enlaces ordenados por cursos.
+    c.	Área personal: Datos de cuenta de usuario como notas o enlaces subidos por él mismo.
+    d.	Subida de enlaces: Formulario para subir nuevos enlaces.
+    e.	Ayuda: Pantalla de información donde recuperar la contraseña si se ha perdido, cambiarla o reportar bug o sugerencia.
+    f.	Administración: Este panel se muestra en lugar de el de ayuda si el usuario tiene credenciales de administrador. Aquí se pueden gestionar tanto los usuarios como los enlaces subidos por ellos.
+    g.	Salir: Botón para salir de la aplicación.
 
 
 RF8: Búsqueda de enlaces
-1. En todas las pantallas de enlaces el usuario podrá usar un filtro de búsqueda en tiempo real.
+  1. En todas las pantallas de enlaces el usuario podrá usar un filtro de búsqueda en tiempo real.
 
-Requisitos no funcionales
+REQUISITOS NO FUNCIONALES
 Requisitos complementarios o atributos de calidad. Especifican criterios que juzgan operaciones del sistema en lugar de su comportamiento (requisitos funcionales).
 RNF1: Documentación
-1.	Página con servicio de ayuda online.
-2.	Manual de usuario de la aplicación.
-3.	La codificación del sistema deberá ser clara y estar documentada de manera que algún programador pueda agregar funcionalidad posteriormente, procurando seguir los estándares de programación en C#.
+  1.	Página con servicio de ayuda online.
+  2.	Manual de usuario de la aplicación.
+  3.	La codificación del sistema deberá ser clara y estar documentada de manera que algún programador pueda agregar funcionalidad posteriormente, procurando seguir los estándares de programación en C#.
 RNF2: Seguridad
-1.	Para poder utilizar todas las funciones de la aplicación hay que autentificarse.
-2.	Solo será necesario autentificarse una vez en el dispositivo.
-3.	Si el usuario no cierra su sesión al salir, ésta se cerrará automáticamente.
-4.	Los datos personales serán cifrados.
+  1.	Para poder utilizar todas las funciones de la aplicación hay que autentificarse.
+  2.	Solo será necesario autentificarse una vez en el dispositivo.
+  3.	Si el usuario no cierra su sesión al salir, ésta se cerrará automáticamente.
+  4.	Los datos personales serán cifrados.
 
 RNF3: Mantenibilidad y portabilidad
-1.	Disponibilidad en todo momento de un contacto con los administradores.
-2.	La aplicación escritorio es portable y no necesita instalación.
-3.	Será necesario disponer de una conexión a internet, en caso de que el servidor se ejecute en una red externa.
+  1.	Disponibilidad en todo momento de un contacto con los administradores.
+  2.	La aplicación escritorio es portable y no necesita instalación.
+  3.	Será necesario disponer de una conexión a internet, en caso de que el servidor se ejecute en una red externa.
 RNF4: Interfaz y usabilidad
-1.	La aplicación debe constar de una interfaz sencilla, atractiva e intuitiva. De tal forma que su uso no suponga un impedimento o esfuerzo al usuario a la hora hacer uso de la aplicación.
-2.	La introducción de datos debe estar estructurada procurando evitar errores.
+  1.	La aplicación debe constar de una interfaz sencilla, atractiva e intuitiva. De tal forma que su uso no suponga un impedimento o esfuerzo al usuario a la hora hacer uso de la aplicación.
+  2.	La introducción de datos debe estar estructurada procurando evitar errores.
 
 RNF5: Rendimiento
-1.	Se esperan tiempos de respuesta no superiores a un segundo en las peticiones al servidor y menores en las consultas a la base de datos.
-2.	Tanto los accesos a base de datos como algún cálculo que se realice en la aplicación no suponen demasiada carga para los equipos actuales, por lo que el rendimiento será óptimo.
+  1.	Se esperan tiempos de respuesta no superiores a un segundo en las peticiones al servidor y menores en las consultas a la base de datos.
+  2.	Tanto los accesos a base de datos como algún cálculo que se realice en la aplicación no suponen demasiada carga para los equipos actuales, por lo que el rendimiento será óptimo.
+
+
 
 METODOLOGÍA DE DESARROLLO
 
@@ -153,21 +124,21 @@ Herramientas, modelos y métodos para ejecutar dicho proceso de desarrollo
 Cada metodología de desarrollo tiene su propio enfoque. Entre ellos, para el proyecto DAMníficus, el enfoque de prototipado parece ser el más apropiado, debido a que se centra en la experiencia con usuario y a que su construcción debe ser en poco tiempo.
 El modelo de prototipos pertenece a los modelos de desarrollo evolutivo, el prototipo debe ser construido en poco tiempo y sin utilizar muchos recursos. El diseño rápido se centra en representación de aspectos software visibles para el usuario. Este rápido diseño conduce a la creación de un primer prototipo que será evaluado y retroalimentado por el cliente, gracias al cual el equipo de desarrollo podrá entender mejor lo que se debe hacer y permitiendo ver al cliente resultados progresivos a corto plazo.
 Las diferentes etapas por la que pasa un software construido con este tipo de metodología son:
--	Plan rápido
--	Modelado, diseño rápido
--	Desarrollo
--	Entrega
--	Retroalimentación
--	Comunicación
--	Entrega final
+  -	Plan rápido
+  -	Modelado, diseño rápido
+  -	Desarrollo
+  -	Entrega
+  -	Retroalimentación
+  -	Comunicación
+  -	Entrega final
 
 Este modelo es muy útil cuando el cliente conoce perfectamente los objetivos generales del software, pero no detalla los requisitos.
 
 A continuación, se ilustra la metodología de desarrollo utilizada en este proyecto mediante un gráfico sencillo.
+-----------------------------------------IMAGEN--------------------------------------------------------
 
 
-
-Contenido de cada prototipo
+CONTENIDO DE CADA PROTOTIPO
 En el primer prototipo se crea el servidor y la interfaz de usuario principal de la aplicación. Además, la funcionalidad de iniciar sesión en la aplicación estaba disponible.
 En el segundo prototipo se implementaron el registro de usuario, las áreas de ayuda/administración con su funcionalidad completa y su conexión al servidor. Se comienza el desarrollo del área personal, el área. También se implementan las peticiones necesarias en el lado del servidor.
 Se crea un proyecto más para albergar una biblioteca de clases con las entidades compartidas.
@@ -175,24 +146,27 @@ En el tercer prototipo se finalizaron el área personal y el área cursos.  En e
 En el último prototipo se mejora lo anterior corrigiendo fallos y se refinan las interfaces por si no quedaron lo suficientemente intuitivas…
 Antes de cada entrega de prototipo se realizan una serie de pruebas tanto de usabilidad, como de carga de datos. Además, se prueba la conexión entre el servidor y varios clientes al mismo tiempo.
 
-Base de datos
+BASE DE DATOS
 Es obvio que la base de datos no puede ser local en el propio equipo, por lo que se implementa una base de datos externa situada en el servidor y a la que se accede a través del API del servidor.
 La base de datos almacenará toda la información de usuarios, notas, asignaturas, temas o enlaces, se explicará más adelante en el capítulo respectivo al diseño.
 
-Seguridad
+SEGURIDAD
 Existirá una doble capa de seguridad para evitar cierto tipo de ataques. La aplicación se comunicará con el servidor por medio de llamadas HTTP para enviar y recibir información. Esta información puede verse en peligro ante ataques Man in the Middle, por ejemplo. Si el atacante consigue interceptar las cabeceras enviadas al servidor podría obtener datos muy valiosos como contraseñas y nombres de usuario.
 La forma más rápida de evitar estos ataques es cifrar los datos que se intercambian entre servidor y cliente, así como cifrar las contraseñas, para que en el caso de que un atacante consiguiera los datos, no le sean de utilidad. En el caso de la aplicación los datos estarán cifrados en SHA-512, en el caso de las contraseñas el cifrado es doble, con el fin de evitar semejantes ataques.
+
+
+
 DISEÑO
 
 En el presente capítulo se describe todo el proceso de diseño de la aplicación DAMníficus. Se ha realizado un diseño que abarca todos los requisitos descritos en el apartado Catálogo de requisitos. El diseño proporciona una idea completa del software desarrollado en el proyecto. Además, se justifican las decisiones tomadas para el posterior desarrollo. Para ello, el capítulo se divide en Arquitectura de la aplicación, Tecnologías utilizadas, Diseño de pantallas, Diseño de la interfaz, Diseño de la base de datos, Diseño de scripts y procedimientos almacenados y Diseño de la seguridad.
 El diseño de la aplicación ha ido sufriendo algún cambio a lo largo del desarrollo. En consecuencia, se muestran en este documento varias versiones de algunos diagramas de diseño de este. A continuación, se enumeran los diferentes motivos que han implicado dichas modificaciones:
-1.	Pruebas no satisfactorias, errores, dificultades o no satisfacción de todos los requisitos.
-2.	Ampliación o adición de algún requisito.
-3.	Adquisición de nuevos conocimientos.
+  1.	Pruebas no satisfactorias, errores, dificultades o no satisfacción de todos los requisitos.
+  2.	Ampliación o adición de algún requisito.
+  3.	Adquisición de nuevos conocimientos.
 
 Arquitectura de la aplicación
 Como se menciona en el capítulo de Análisis, la arquitectura de la aplicación se basa en el modelo cliente servidor. En el caso de este proyecto, y como puede verse en la siguiente figura, la aplicación de escritorio constituirá la parte cliente, y la base de datos estará alojada en un servidor al que se accederá mediante llamadas http.
-
+-----------------------------------------IMAGEN--------------------------------------------------------
  
 
 
@@ -207,26 +181,23 @@ Modelo a capas
 La aplicación cliente ha sido diseñada siguiendo el modelo por capas. La programación por capas es una arquitectura cuyo objetivo primordial es la separación de la lógica de negocios de la lógica de diseño. un ejemplo básico de esto consiste en separar    la capa de datos de la capa de presentación al usuario.
 La ventaja principal de este estilo es que el desarrollo se puede llevar a cabo en varios niveles y, en caso de que haya que hacer algún cambio, sólo se ataca al nivel requerido.
 El diseño más utilizado actualmente y el que hemos usado en nuestra aplicación es el diseño en tres capas:
-
-1.	Capa de presentación o vista: es la que ve el usuario, presenta el sistema al usuario, le comunica la información y captura la información del usuario en un mínimo de proceso (realiza un filtrado previo para comprobar que no hay errores de formato). También es conocida como interfaz gráfica y debe tener la característica de ser entendible y fácil de usar para el usuario. Esta capa se comunica únicamente con la capa de negocio o modelo.
-
-2.	Capa de negocio o modelo: es donde se reciben las peticiones del usuario y se envían las respuestas tras el proceso. Se denomina capa de negocio o modelo y es aquí donde se establecen todas las reglas que deben cumplirse. Esta capa se comunica con la  capa de presentación,  para recibir las solicitudes y presentar los resultados, y con la  capa de datos, para solicitar al gestor de base de datos almacenar o recuperar datos de él.
-
-3.	Capa de datos o persistencia: es donde residen los datos y es la encargada de acceder a los mismos. Está formada por uno o más gestores de bases de datos que realizan todo el almacenamiento de datos, reciben solicitudes de almacenamiento o recuperación de información desde la capa del modelo.
-
+  1.	Capa de presentación o vista: es la que ve el usuario, presenta el sistema al usuario, le comunica la información y captura la información del usuario en un mínimo de proceso (realiza un filtrado previo para comprobar que no hay errores de formato). También es conocida como interfaz gráfica y debe tener la característica de ser entendible y fácil de usar para el usuario. Esta capa se comunica únicamente con la capa de negocio o modelo.
+  2.	Capa de negocio o modelo: es donde se reciben las peticiones del usuario y se envían las respuestas tras el proceso. Se denomina capa de negocio o modelo y es aquí donde se establecen todas las reglas que deben cumplirse. Esta capa se comunica con la  capa de presentación,  para recibir las solicitudes y presentar los resultados, y con la  capa de datos, para solicitar al gestor de base de datos almacenar o recuperar datos de él.
+  3.	Capa de datos o persistencia: es donde residen los datos y es la encargada de acceder a los mismos. Está formada por uno o más gestores de bases de datos que realizan todo el almacenamiento de datos, reciben solicitudes de almacenamiento o recuperación de información desde la capa del modelo.
 Una de las cosas más importantes al utilizar este modelo de capas es no olvidar que nunca puedes llamar desde una capa a otra que no se comunique directamente con ella. Es imprescindible seguir la visibilidad de capas.
-
+----------------------------------IMAGEN------------------------------------------------
  
 
 Vista
 La capa de vista es la capa encargada de mostrar los datos que le proporciona el
 modelo al usuario. Esta capa se comunica con el usuario y con el modelo, formatea los datos para mostrárselos al usuario y utiliza lógica para mostrarlos, pero nunca lógica de aplicación.
 Un ejemplo de esto podría ser que la capa de modelo le envie un array con productos y la vista lo formatee para rellenar una tabla en la que aparezcan los productos con toda su información.
+-----------------------------------IMAGEN---------------------------------------------------
 
 Modelo
 La capa de modelo es la capa encargada de tratar los datos que recibe de la vista y de la persistencia. El modelo es el cerebro de la aplicación, y nunca debe comunicarse directamente con el usuario, así que evitaremos por ejemplo mostrar una pantalla de error al usuario desde esta capa. En el caso de existir el error, la forma de actuar será mandando la información del error a la vista y la vista mostrará el error.
 En nuestro caso, un ejemplo muy claro es que pedimos una lista con tiempos de cada juego a la base datos, la base de datos nos devuelve una lista con todos los tiempos, nosotros seleccionamos en el modelo los mejores de cada dificultad y se los pasamos a la vista para que los muestre.
-
+-------------------------------------IMAGEN------------------------------------------
  
 
 Persistencia
